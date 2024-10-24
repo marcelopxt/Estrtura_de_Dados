@@ -7,8 +7,9 @@ public class Exercicio1 {
         try {
         System.out.print("Informe um número: ");
         int n = sc.nextInt();
-        System.out.println("Você deseja saber o fatorial [1], ou o fibonacci [2] de " + n + "?");
+        System.out.println("Você deseja saber o fatorial [1], ou o fibonacci [2] de " + n + "?"); 
         int escolha = sc.nextInt();
+        System.out.println("");
         sc.close();
             if (escolha == 1) {
                 System.out.println("o fatorial de " + n + " é: " + calcularFatorial(n));
@@ -17,6 +18,10 @@ public class Exercicio1 {
                     System.out.println("Por favor, digite um numero positivo se quiser calcular o Fibonacci!");
                 }else{
                 System.out.println("O Fibonacci de " + n + " é: " + calcularFibonacci(n));
+                System.out.println("A sequencia fica assim: ");
+                for(int i = 0 ; i <= n; i++){
+                    System.out.println(calcularFibonacci(i));
+                }
                 }
             }
         } catch (Exception e) {
@@ -28,10 +33,9 @@ public class Exercicio1 {
         if (x <= 1) {
             return x;
         }
-
         long a = 0;
         long b = 1;
-        long result = 1;
+        long result = 0;
 
         for (int i = 2; i <= x; i++) {
             result = a + b;
