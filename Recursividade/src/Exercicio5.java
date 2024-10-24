@@ -10,6 +10,9 @@ public class Exercicio5 {
             System.out.println("2° numero: ");
             int b = sc.nextInt();
             sc.close();
+            if (b == 0) {
+                b = a;
+            }
             int result = calcularMdc(a, b);
             System.out.println("O maximo divisor comum é: " + result);
         } catch (Exception e) {
