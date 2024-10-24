@@ -1,14 +1,19 @@
 import java.util.Scanner;
 public class Exercicio3{
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite um número para saber se é primo: ");
-        int s = sc.nextInt();
-        System.out.println(calcularPrimo(s));
-        sc.close();
+        try {
+            System.out.println("Digite um número para saber se é primo: ");
+            int s = sc.nextInt();
+            System.out.println(calcularPrimo(s));
+            sc.close();
+        } catch (Exception e) {
+           System.out.println("Digite um numero válido.");
+        }
+        
     }
 
-    public static String calcularPrimo(int n) {
+    public static String calcularPrimo(int n) throws Exception{
         if (n < 2) {
             return "Não é primo";
         }
