@@ -17,7 +17,7 @@ public class App {
                     char caracter = entrada.charAt(i);
                     if (caracter == '<') { 
                         d.push(new Coisa(caracter));
-                    }else if(caracter == '>'){
+                    }else if(caracter == '>' && i > 0){
                         if (d.isVazia()) {
                         System.out.println("acabou");
                         }else{
@@ -26,6 +26,7 @@ public class App {
                         }
                     }
                 }
+                
                 cont++;
                 System.out.println("A sua entrada foi:  " + entrada);
                 System.out.println("A quantidade de diamantes é: " + diamantes);
