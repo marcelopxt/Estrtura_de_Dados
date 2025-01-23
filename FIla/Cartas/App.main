@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class App{
+
+    public static void main(String[] args) throws Exception{
+        int opcao = -1;
+        Scanner sc = new Scanner(System.in);
+        int qntdCartas = 0;
+        int control = 0;
+        
+        do{
+            
+            Fila fila = new Fila();
+            Fila aux = new Fila();
+            control = 0;
+            qntdCartas = 0;
+
+            if (!fila.isEmpty()) {
+                fila.excluirTodos();
+            }
+
+            if (!aux.isEmpty()) {
+                aux.excluirTodos();
+            }
+
+            qntdCartas = sc.nextInt();
+            sc.nextLine();
+
+            if (qntdCartas == 0) {
+             
+                break;
+            }
+
+            if(qntdCartas == 1){     
+                System.out.println("Remaining card: " + 1);
+                continue;
+            }
+        
+            for (int i = 1; i <= qntdCartas; i++) {
+                fila.enfileirar(new Cartas(i));
+            }
+
+            while (fila.tamanho != 1) {
+                if (control %2 == 0) {        
+                    aux.enfileirar(fila.consultarPrimeiro());
+                    fila.desenfileirar();
+                }else{
+                    fila.enfileirar(fila.consultarPrimeiro());
+                    fila.desenfileirar();
+                }
+                control++;
+            }
+
+          
+        System.out.print("Discarted card: ");
+        aux.imprimirCartas();
+        System.out.print("Remaining card: ");
+        fila.imprimirCartas();
+        }while(opcao != 0); 
+        sc.close();
+    }
+
+}
